@@ -4,41 +4,26 @@
 
 @layer base {
   :root {
-    --background: 220 20% 6%;
-    --foreground: 60 5% 95%;
-
-    --card: 220 18% 10%;
-    --card-foreground: 60 5% 95%;
-
-    --popover: 220 18% 10%;
-    --popover-foreground: 60 5% 95%;
-
-    --primary: 174 80% 48%;
-    --primary-foreground: 220 20% 6%;
-
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 60 5% 95%;
-
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
-
-    --accent: 38 100% 55%;
-    --accent-foreground: 220 20% 6%;
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 5% 95%;
-
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 174 80% 48%;
-
-    --radius: 0.75rem;
-
-    --neon: #2de2c8;
-    --neon-glow:
-      0 0 20px rgba(45, 226, 200, 0.4), 0 0 60px rgba(45, 226, 200, 0.15);
-    --gold: #ffaa1a;
-    --gold-glow: 0 0 20px rgba(255, 170, 26, 0.4);
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
 }
 
@@ -46,164 +31,7 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-family: "Golos Text", sans-serif;
-    overflow-x: hidden;
   }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Oswald", sans-serif;
-    letter-spacing: 0.02em;
-  }
-}
-
-@layer utilities {
-  .font-display {
-    font-family: "Oswald", sans-serif;
-  }
-
-  .font-body {
-    font-family: "Golos Text", sans-serif;
-  }
-
-  .neon-text {
-    color: var(--neon);
-    text-shadow: var(--neon-glow);
-  }
-
-  .neon-border {
-    border-color: var(--neon);
-    box-shadow: var(--neon-glow);
-  }
-
-  .gold-text {
-    color: var(--gold);
-    text-shadow: var(--gold-glow);
-  }
-
-  .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .grain {
-    position: relative;
-  }
-
-  .grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  .animate-fade-up {
-    animation: fadeUp 0.7s ease forwards;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease forwards;
-  }
-
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .animate-pulse-slow {
-    animation: pulseSlow 3s ease-in-out infinite;
-  }
-
-  .hover-lift {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(45, 226, 200, 0.15);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulseSlow {
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-    opacity: 1;
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-    opacity: 1;
-  }
-  to {
-    height: 0;
-    opacity: 0;
-  }
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-html {
-  scroll-behavior: smooth;
 }
